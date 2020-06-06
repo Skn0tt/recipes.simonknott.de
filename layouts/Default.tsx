@@ -64,8 +64,7 @@ function Footer() {
             <p className="left-align mb2">
               <Link href="/search">
                 <a>Search</a>
-              </Link>{" "}
-              | Subscribe <a href="/feed.xml">via RSS</a>
+              </Link>
             </p>
           </div>
           <div className="sm-col sm-col-6">
