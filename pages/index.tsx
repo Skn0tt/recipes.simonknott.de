@@ -1,11 +1,11 @@
 import { Default } from "../layouts/Default";
 import { RecipesRepository } from "../RecipesRepository";
-import { InferGetStaticPropsType, GetStaticPropsContext } from "next";
+import { InferGetStaticPropsType } from "next";
 import config from "../config";
 import { ChowdownIntroduction } from "../components/ChowdownIntroduction";
 import Link from "next/link";
 
-export async function getStaticProps(context: GetStaticPropsContext) {
+export async function getStaticProps() {
   const recipes = await RecipesRepository.getRecipes();
   return {
     props: {

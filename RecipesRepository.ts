@@ -1,14 +1,16 @@
-interface Recipe {
+export interface Recipe {
   slug: string;
   title: string;
   description: string;
-  imageHref: string;
+  imageHref?: string;
+  imageCredit?: string;
   ingredients: string[];
   directions: string[];
 }
 
 interface RecipesRepository {
   getRecipes(): Promise<Recipe[]>;
+  getRecipeSlugs(): Promise<string[]>;
   getRecipe(slug: string): Promise<Recipe | null>;
 }
 
@@ -41,6 +43,9 @@ const mockRecipes: Record<string, Recipe> = {
 export const RecipesRepository: RecipesRepository = {
   async getRecipes() {
     return Object.values(mockRecipes);
+  },
+  async getRecipeSlugs() {
+    return Object.keys(mockRecipes);
   },
   async getRecipe(slug) {
     return mockRecipes[slug] ?? null;
