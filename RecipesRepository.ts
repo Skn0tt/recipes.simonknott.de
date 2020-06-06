@@ -2,7 +2,7 @@ export interface Recipe {
   slug: string;
   title: string;
   description: string;
-  imageHref?: string;
+  imageHref: string;
   imageCredit?: string;
   ingredients: string[];
   directions: string[];
