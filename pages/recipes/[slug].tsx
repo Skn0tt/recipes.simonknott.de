@@ -12,11 +12,11 @@ type PageParams = { slug: string };
 export async function getStaticProps(
   context: GetStaticPropsContext<PageParams>
 ) {
-  const { slug } = context.params;
+  const { slug = "" } = context.params || {};
   const recipe = await RecipesRepository.getRecipe(slug);
   return {
     props: {
-      recipe,
+      recipe: recipe!,
     },
   };
 }
