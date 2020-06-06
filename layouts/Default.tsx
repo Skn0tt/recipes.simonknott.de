@@ -1,6 +1,7 @@
 import { PropsWithChildren } from "react";
 import config from "../config";
 import Link from "next/link";
+import Head from "next/head";
 
 function Header() {
   return (
@@ -90,9 +91,25 @@ function Footer() {
   );
 }
 
-export function Default(props: PropsWithChildren<{}>) {
+interface DefaultProps {
+  twitterImageHref?: string;
+}
+
+export function Default(props: PropsWithChildren<DefaultProps>) {
   return (
     <>
+      <Head>
+        <title>{config.site.title}</title>
+        <meta name="description" content={config.site.description} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:creator" content={config.site.creator.twitter} />
+        <meta name="twitter:title" content={config.site.title} />
+        <meta name="twitter:description" content={config.site.description} />
+        {props.twitterImageHref && (
+          <meta name="twitter:image:src" content={props.twitterImageHref} />
+        )}
+      </Head>
       <Header />
       <div>{props.children}</div>
       <Footer />
