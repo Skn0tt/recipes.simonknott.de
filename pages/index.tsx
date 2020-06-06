@@ -1,8 +1,6 @@
 import { Default } from "../layouts/Default";
 import { RecipesRepository } from "../RecipesRepository";
 import { InferGetStaticPropsType } from "next";
-import config from "../config";
-import { ChowdownIntroduction } from "../components/ChowdownIntroduction";
 import Link from "next/link";
 
 export async function getStaticProps() {
@@ -43,8 +41,6 @@ export default function Home(
             ))}
           </div>
         </div>
-
-        {config.site.displayChowdownIntroduction && <ChowdownIntroduction />}
       </div>
     </Default>
   );
