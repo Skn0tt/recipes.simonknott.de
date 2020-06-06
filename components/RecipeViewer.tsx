@@ -43,9 +43,11 @@ export function RecipeViewer(props: RecipeViewerProps) {
         </header>
 
         <div className="px2 mt3 clearfix">
-          <div className="sm-col-8 mx-auto center" itemProp="description">
-            {recipe.description}
-          </div>
+          <div
+            className="sm-col-8 mx-auto center"
+            itemProp="description"
+            dangerouslySetInnerHTML={{ __html: recipe.description }}
+          />
         </div>
 
         <div className="clearfix mt3">
