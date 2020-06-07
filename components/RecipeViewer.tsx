@@ -55,7 +55,7 @@ export function RecipeViewer(props: RecipeViewerProps) {
             <h4 className="blue mt0 mb2 xs-center">Ingredients</h4>
             <ul itemProp="ingredients">
               {recipe.ingredients.map((ingredient) => (
-                <li itemProp="recipeIngredient">
+                <li key={ingredient} itemProp="recipeIngredient">
                   {executionSite === "client" && <input type="checkbox" />}{" "}
                   {ingredient}
                 </li>
@@ -67,7 +67,7 @@ export function RecipeViewer(props: RecipeViewerProps) {
             <h4 className="blue mt0 mb2 xs-center">Directions</h4>
             <ul itemProp="recipeInstructions">
               {recipe.directions.map((direction) => (
-                <li>
+                <li key={direction}>
                   {executionSite === "client" && <input type="checkbox" />}
                   {direction}
                 </li>
