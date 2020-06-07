@@ -11,7 +11,7 @@ export interface Recipe {
   title: string;
   description: string;
   imageHref: string;
-  imageCredit?: string;
+  imageCredit: string | null;
   ingredients: string[];
   directions: string[];
 }
@@ -27,7 +27,7 @@ function parseRecipe(fields: any): Recipe {
     slug: fields.slug,
     description: documentToHtmlString(fields.description),
     imageHref: fields.image.fields.file.url,
-    imageCredit: "",
+    imageCredit: fields.imageCredit ?? null,
     title: fields.title,
     ingredients: fields.ingredients,
     directions: fields.directions,
