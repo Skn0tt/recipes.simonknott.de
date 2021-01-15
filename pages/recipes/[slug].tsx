@@ -4,6 +4,7 @@ import {
   GetStaticPaths,
   InferGetStaticPropsType,
 } from "next";
+import Head from "next/head";
 import { RecipesRepository } from "../../RecipesRepository";
 import { RecipeViewer } from "../../components/RecipeViewer";
 
@@ -37,6 +38,9 @@ export default function Recipe(
   const { recipe } = props;
   return (
     <Default>
+      <Head>
+        <title>{recipe.title}</title>
+      </Head>
       <RecipeViewer recipe={recipe} />
     </Default>
   );

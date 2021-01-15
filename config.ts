@@ -1,9 +1,9 @@
 const config = {
   site: {
-    title: "chowdown",
+    title: "Simon's Recipes",
     description: "Tasty recipes straight to your browser.",
     creator: {
-      twitter: "@clarklab",
+      twitter: "@skn0tt",
     },
   },
 };
